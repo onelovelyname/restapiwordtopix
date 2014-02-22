@@ -8,6 +8,9 @@ Restapiwordtopix::Application.routes.draw do
   resources :words
 
 
+  match '/word', to: 'words#today', :via => :get
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

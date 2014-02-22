@@ -10,9 +10,17 @@ class WordsController < ApplicationController
   end
 
   def show
-    w = Word.where(worddate: params[:date]) 
-    respond_with w
+   # w = Word.where(worddate: Time.now.strftime("%m/%d/%Y")) 
+   
+    @word = Word.find(params[:id]) 
+    respond_with word 
+
   end
+
+  def today
+    w = Word.where(worddate: Time.now.strftime("%m/%d/%Y"))  
+    respond_with w
+  end 
 
   def create
     word.save

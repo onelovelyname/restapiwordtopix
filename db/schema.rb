@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140222213753) do
+ActiveRecord::Schema.define(:version => 20140222221833) do
+
+  create_table "deals", :force => true do |t|
+    t.string   "destinationCity"
+    t.string   "departDate"
+    t.string   "returnDate"
+    t.decimal  "minTotalRate"
+    t.string   "dealCarrier"
+    t.integer  "word_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "word_id"
+    t.integer  "user_id"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "words", :force => true do |t|
     t.string   "name"
