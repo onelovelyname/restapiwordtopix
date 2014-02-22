@@ -1,0 +1,33 @@
+<h1>Listing deals</h1>
+
+<table>
+  <tr>
+    <th>Destinationcity</th>
+    <th>Departdate</th>
+    <th>Returndate</th>
+    <th>Mintotalrate</th>
+    <th>Dealcarrier</th>
+    <th>Word</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @deals.each do |deal| %>
+  <tr>
+    <td><%= deal.destinationCity %></td>
+    <td><%= deal.departDate %></td>
+    <td><%= deal.returnDate %></td>
+    <td><%= deal.minTotalRate %></td>
+    <td><%= deal.dealCarrier %></td>
+    <td><%= deal.word_id %></td>
+    <td><%= link_to 'Show', deal %></td>
+    <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+    <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Deal', new_deal_path %>

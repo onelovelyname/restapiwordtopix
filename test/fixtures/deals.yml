@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  destinationCity: 
+  departDate: 
+  returnDate: 
+  minTotalRate: 
+  dealCarrier: 
+  word_id: 1
+
+two:
+  destinationCity: 
+  departDate: 
+  returnDate: 
+  minTotalRate: 
+  dealCarrier: 
+  word_id: 1
