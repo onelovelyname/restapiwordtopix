@@ -14,8 +14,9 @@ class PhotosController < ApplicationController
   end
 
   def create
-    photo.save
-    respond_with photo
+    @word = Word.find(params[:word_id])
+    @photo = @word.photos.create(params[:photo])
+    head :no_content
   end
 
   def update
