@@ -10,6 +10,7 @@ class Word < ActiveRecord::Base
 	  	{
 	  		id: 	self.id,
 	  		name: 	self.name,
+	  		photos: self.photos,
 	  		deal: 	self.get_Deal
 	  	}
 	else 
