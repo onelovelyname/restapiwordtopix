@@ -5,12 +5,19 @@ class Word < ActiveRecord::Base
   has_many :photos
 
   def as_json(options= {})
-  	{
-  		id: 	self.id,
-  		name: 	self.name,
-  		deal: 	self.get_Deal
-
-  	}
+  	puts options
+  	if options['single']
+	  	{
+	  		id: 	self.id,
+	  		name: 	self.name,
+	  		deal: 	self.get_Deal
+	  	}
+	else 
+	  	{
+	  		id: 	self.id,
+	  		name: 	self.name
+	  	}
+	end		
   end
 
   def get_Deal
@@ -23,7 +30,7 @@ class Word < ActiveRecord::Base
   	#state_result = top_result['location']['address']['state']
 
 
-  	source_flight = "http://api.ean.com/expe/deals/flights.json?apiKey=nk2nd4w9g3qxa6ekmzvjuhmj&destinationCity=#{city_result}"
+  	source_flight = "http://api.ean.com/expe/deals/flights.json?apiKey=nk2nd4w9g3qxa6ekmzvjuhmj&destinationCity=#{CGI.escape city_result}"
   	resp = Net::HTTP.get_response(URI.parse(source_flight))
   	data = resp.body
   	result_flight = JSON.parse(data)

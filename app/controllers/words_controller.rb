@@ -20,7 +20,7 @@ class WordsController < ApplicationController
   def today
     w = Word.where(worddate: Time.now.strftime("%m/%d/%Y"))
       
-    respond_with w
+    respond_with w.to_json("single" => true)
   end 
 
   def create
