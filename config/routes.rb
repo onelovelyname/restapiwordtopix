@@ -1,12 +1,16 @@
 Restapiwordtopix::Application.routes.draw do
 
-  resources :photos
+  resources :words do
 
-  resources :words
+    resources :photos
 
-  match '/word', to: 'words#today', :via => :get
+  end
 
-  match 'word/id/photo', to: 'photos#create', :via => :post
+    match '/word', to: 'words#today', :via => :get
+
+    match '/photo', to: 'photos#create', :via => :post
+
+    match '/photo', to: 'photos#show', :via => :get
 
 
   # The priority is based upon order of creation:

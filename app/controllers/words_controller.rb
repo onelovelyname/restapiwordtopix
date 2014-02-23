@@ -13,7 +13,7 @@ class WordsController < ApplicationController
    # w = Word.where(worddate: Time.now.strftime("%m/%d/%Y")) 
    
     @word = Word.find(params[:id]) 
-    respond_with word 
+    respond_with (@word.to_json( :include => :photos))
 
   end
 
