@@ -18,7 +18,8 @@ class WordsController < ApplicationController
   end
 
   def today
-    w = Word.where(worddate: Time.now.strftime("%m/%d/%Y"))  
+    w = Word.where(worddate: Time.now.strftime("%m/%d/%Y"))
+      
     respond_with w
   end 
 
